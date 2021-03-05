@@ -27,11 +27,21 @@ Actividad 2.2
 
 1.
 
-(define (insert n lista)
-  (cond ((null? lista) (list n))
-        ((<= n (car lista)) (cons n lista))
-        (else (cons (car l) 
-                    (insert (cdr lista) n)))))
-
+(define (part n lst1 lst2)
+    (cond 
+        ((null? lst2)
+            (append lst1 (cons n '()))
+        )
+        ((< n (car lst2))
+            (append (append lst1 (cons n '())) lst2)
+        )
+        (else
+            (part n (append lst1 (cons (car lst2) '())) (cdr lst2)) 
+        )
+    )
+)
+(define (insert n lst)
+    (part n '() lst)
+)
 
  
