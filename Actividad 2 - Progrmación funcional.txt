@@ -1,0 +1,51 @@
+﻿Actividad 2.1 Programación funcional, parte 1
+
+
+6 - Duplicar elementos en una lista
+
+
+(define (duplicate lista)
+        (define lista2 (list))
+        (duplicateAux lista lista2))
+
+
+(define (duplicateAux lista lista2)
+  (cond ((= (length lista) 0) lista2)
+                (else 
+               (duplicateAux (cdr lista) (append lista2 (list (car lista) (car lista)))))))
+
+
+10 - Positivos dentro de lista.
+
+
+(define (positives lista)
+        (define lista2 (list))
+        (positivesAux lista lista2))
+                                                                                     
+(define (positivesAux lista lista2)
+(cond
+        ((= (length lista) 0) lista2)
+        (else (cond
+                ((positive? (car lista))positivesAux (cdr lista) (append lista2 (list (car lista)))))
+                (else (positivesAux (cdr lista) (append lista2 (list))))))))        
+
+
+“Actividad 2.2 Programación funcional, parte 2”
+
+
+3 - Rotación de lista                 
+
+
+(define (rotate-left num lista)
+(cond        ((and (> num 0) (> (length lista) 1))
+        (rotate-left (- num 1) (rotate-left-aux (car lista) (cdr lista))))
+        ((and (< num 0) (> (length lista) 1))
+        (rotate-left (+ num 1) (rotate-right lista (list))))
+        (else (append lista (list)))))
+
+(define (rotate-left-aux primero lista)
+        (append lista (list primero)))
+
+(define (rotate-right lista lista2)
+(cond        ((= (length lista) 1) (append lista lista2))
+(else(rotate-right (cdr lista) (append lista2 (list (car lista)))))))

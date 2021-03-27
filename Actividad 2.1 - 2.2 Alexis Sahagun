@@ -1,0 +1,47 @@
+Actividad 2.1
+
+3. La función roots devuelve la raíz que resuelve una ecuación cuadŕatica a partir de sus tres coeficiente, a,b y c, que se reciben como entrada. Se debe usar la siguiente fórmula:
+
+(define (roots a b c)
+(/ (+ (- 0 b) (sqrt (- (expt b 2) (* 4 (* a c))))) (* 2 a))
+)
+
+
+4.
+
+(define (calculator w h)
+(/ w (expt h 2))
+)
+
+(define (bmi weight height)
+(cond
+    ((< (calculator weight height) 20) 'Underweight )
+    ((< (calculator weight height) 25) 'Normal )
+    ((< (calculator weight height) 30) 'obese1 )
+    ((< (calculator weight height) 40) 'obese2 )
+    ((> (calculator weight height) 39) 'obese3 )
+  )
+)
+
+Actividad 2.2
+
+1.
+
+(define (part n lst1 lst2)
+    (cond 
+        ((null? lst2)
+            (append lst1 (cons n '()))
+        )
+        ((< n (car lst2))
+            (append (append lst1 (cons n '())) lst2)
+        )
+        (else
+            (part n (append lst1 (cons (car lst2) '())) (cdr lst2)) 
+        )
+    )
+)
+(define (insert n lst)
+    (part n '() lst)
+)
+
+ 
