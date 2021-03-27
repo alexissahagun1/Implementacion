@@ -1,0 +1,11 @@
+//Guacamole
+ -12E-4
+.-5
+b.a<a =e-5
+        <"a "a"-1
+5^110e-5
+b=7
+5e-7*50
+a = 32.4 *(-8.6 - b)/       6.1E-8
+
+d = a ^ b // Esto es un comentario
