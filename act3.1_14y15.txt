@@ -1,0 +1,8 @@
+14. The set of strings over {a,b,c} in which all the a's precede the b's, which in turn precede the c's. It is possible that there are no a's, b's, or c's.
+
+a*b*c*
+
+
+15. The same set as Exercise 14 without the null string.
+
+aa*bb*cc*
