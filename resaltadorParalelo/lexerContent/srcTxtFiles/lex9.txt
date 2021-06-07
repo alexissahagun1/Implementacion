@@ -1,0 +1,50 @@
+(define (part n lst1 lst2)
+    (cond 
+        ((null? lst2)
+            (append lst1 (cons n '()))
+        )
+        ((< n (car lst2))
+            (append (append lst1 (cons n '())) lst2)
+        )
+        (else
+            (part n (append lst1 (cons (car lst2) '())) (cdr lst2)) 
+        )
+    )
+)
+(define (insert n lst)
+    (part n '() lst)
+)
+
+(define (rotate-left num lista)
+(cond    ((and (> num 0) (> (length lista) 1))
+    (rotate-left (- num 1) (rotate-left-aux (car lista) (cdr lista))))
+    ((and (< num 0) (> (length lista) 1))
+    (rotate-left (+ num 1) (rotate-right lista (list))))
+    (else (append lista (list)))))
+
+(define (rotate-left-aux primero lista)
+    (append lista (list primero)))
+
+(define (rotate-right lista lista2)
+(cond    ((= (length lista) 1) (append lista lista2))
+(else(rotate-right (cdr lista) (append lista2 (list (car lista)))))))
+
+
+
+(define (invert a b)
+   (cond
+       ((null? b)
+           a
+       )
+       ((not (list? b))
+           (list b)
+       )
+       (else
+           (if (list? (car b))
+               (invert (append (list (invert '() (car b))) a) (cdr b))
+               (invert (append (invert '() (car b)) a) (cdr b))
+           )
+       )
+   )
+)
+(define (deep-reverse lst)

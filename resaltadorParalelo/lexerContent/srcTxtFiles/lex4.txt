@@ -1,0 +1,12 @@
+(define (name param1-param2) ;
+
+(name 'a) ;
+'name+1  -name*3^4/5.2 ;
+
+#t#f ;
+
+1.2ebc+#f ;
+
+'(#t+#f) ;
+
+hol@2-mundo2 ;

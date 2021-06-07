@@ -1,0 +1,72 @@
+(define(fahrenheit-to-celsius F)
+   (cond
+       ((number? F)
+           (exact->inexact (* (- F 32) 5/9))
+       )
+       (else
+           'error
+       )
+   )
+)
+
+(define (sign n)
+   (cond
+       ((number? n)
+           (cond
+               ((> n 0)
+                   1
+               )
+               ((< n 0)
+                   (- 1)
+               )
+               (else
+                   0
+               )
+           )
+       )
+       (else
+           'error
+       )
+   )
+)
+
+(define (roots a b c)
+(/ (+ (- 0 b) (sqrt (- (expt b 2) (* 4 (* a c))))) (* 2 a))
+)
+
+(define (calculator w h)
+(/ w (expt h 2))
+)
+
+(define (bmi weight height)
+(cond
+    ((< (calculator weight height) 20) 'Underweight )
+    ((< (calculator weight height) 25) 'Normal )
+    ((< (calculator weight height) 30) 'obese1 )
+    ((< (calculator weight height) 40) 'obese2 )
+    ((> (calculator weight height) 39) 'obese3 )
+  )
+)
+
+(define (duplicate lista)
+    (define lista2 (list))
+    (duplicateAux lista lista2))
+
+(define (duplicateAux lista lista2)
+  (cond ((= (length lista) 0) lista2)
+            (else 
+               (duplicateAux (cdr lista) (append lista2 (list (car lista) (car lista)))))))
+
+//La función itera sobre los elementos de la lista hasta que esta no contenga ninguno, por cada elemento se le agrega este dos veces a una nueva lista, la cual se vuelve a pasar como parámetro.
+
+
+(define (positives lista)
+    (define lista2 (list))
+    (positivesAux lista lista2))
+                                             
+(define (positivesAux lista lista2)
+(cond
+    ((= (length lista) 0) lista2)
+    (else (cond
+        ((positive? (car lista))positivesAux (cdr lista) (append lista2 (list (car lista)))))
+        (else (positivesAux (cdr lista) (append lista2 (list))))))))
